@@ -95,7 +95,7 @@ function grabEm(input) {
     var limit = 10;
 
     $.ajax({
-        url: "http://api.giphy.com/v1/gifs/search?q=" + input + "&api_key=AeQchigIEXfrl8UWsqzKZlYG3TaIyrZ6&limit=" + limit,
+        url: "https://api.giphy.com/v1/gifs/search?q=" + input + "&api_key=AeQchigIEXfrl8UWsqzKZlYG3TaIyrZ6&limit=" + limit,
         method: 'GET'
     }).then(function (resp) {
         var results = resp.data;
