@@ -1,0 +1,94 @@
+body {
+    background-image: url(water.png);
+    background-attachment: fixed;
+    background-size: 100% 100%;
+}
+
+.picBox {
+    height: 150px;
+    margin: 40px;
+    border: inset 4px rebeccapurple;
+    border-radius: 9px;
+}
+
+.picBox, .button:hover {
+    cursor: pointer;
+}
+
+#board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#buttonBoard, #buttonBoardSpacer, #buttonRow {
+    width: 100%;
+    display: flex;
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: transparent;
+    height: 10vw;
+}
+
+#buttonBoard {
+    position: fixed;
+    z-index: 3;
+}
+
+#buttonRow {
+    position: absolute;
+    z-index: 4;
+    height: 2vw;
+    bottom: 0px;
+}
+
+.button {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(43, 95, 207);
+    color: whitesmoke;
+    border: 0.2vw outset rgb(29, 147, 168);
+    border-radius: 2vw;
+    font-family: 'freckle face', serif;
+    font-size: 1.4vw;
+    height: 2vw;
+}
+
+#barContainer, #buttonContainer {
+    height: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#theForm {
+    z-index: inherit;
+    align-self: center;
+    position: absolute;
+}
+
+#instructions {
+    background-color: white;
+    padding: 10px 30px;
+    z-index: 5;
+    color: black;
+    font-family: monospace;
+    position: fixed;
+    left: 10px;
+    top: 0;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    filter: drop-shadow(10px 10px 8px rgb(48, 48, 48));
+}
+
+ol {
+    list-style-type: decimal;
+}
