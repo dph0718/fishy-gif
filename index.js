@@ -71,16 +71,25 @@ var Button = function (word) {
                 grabEm($this.text);
                 $this.clicked = 1;
                 $buttonEl.css('filter', 'drop-shadow(0px 0px 22px purple)');
-                //if it's been clicked once, now clicked = 2 and the term is favorited & stored locally.
+                //if it's been clicked once,now clicked = 2 and the term is favorited & stored locally.
             } else if ($this.clicked === 1) {
                 $this.clicked = 2;
                 if ($this.orig === false) {
                     favTerms.push($this.text);
                     var stringedTerms = JSON.stringify(favTerms);
                     localStorage.setItem("favTerms", stringedTerms);
-                    $buttonEl.css('filter', 'drop-shadow(0px 0px 22px yellow)');
+                    $buttonEl.css('filter', 'drop-shadow(0px 0px 22px yellow)')
+                        .css('background-color', 'navy');
+                    var div = $("<div>");
+                    div.text("favorite!")
+                        .appendTo(this)
+                        .css('background-color', 'red');
+                    setTimeout(function(){div.hide()}, 2000);
+
+                } else {
+                    grabEm($this.text);
                 }
-                //if it's already been favorited, nothing happens.
+                //if it's already been favorited, more gifs appear, but nothing else happens.
             } else if ($this.clicked === 2) {
                 grabEm($this.text);
                 return;
@@ -88,6 +97,8 @@ var Button = function (word) {
         })
     }
 }
+
+
 
 
 //sends ajax request and populates the page with picture elements and begins listening for clicks on them elements.
@@ -136,6 +147,9 @@ initializeButtons = function () {
             }
         }
     }
+    if (localStorage.getItem('gotIt')) {
+        $("#instructions").hide();
+    }
 }
 
 //listens for click event and searches based on user input.
@@ -154,8 +168,9 @@ $("#gifSearchButton").on('click', function (event) {
     }
 })
 
-$("#OK").on('click', function(){
+$("#OK").on('click', function () {
     $("#instructions").hide();
+    localStorage.setItem('gotIt', true);
 })
 $("#clearButton").on('click', function () {
     favTerms = [];
